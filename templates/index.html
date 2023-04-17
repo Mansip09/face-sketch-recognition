@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title>Forensic Face Sketch Recognition</title>
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="web-1920-1">
+  <div class="overlap-group">
+    <div class="rectangle-1094 border-1px-dove-gray"></div>
+	<form action="{{ url_for('upload')}}" enctype="multipart/form-data" method="POST">
+	
+    <div class="rectangle-1090-1">
+	<input type="file" name="file">
+	<button type="submit" class="btn btn-primary btn-lg">UPLOAD</button></div>
+	</form>
+	<form action="{{url_for('imagedesc')}}" enctype="multipart/form-data" method="POST">
+
+    <div class="rectangle-1090-3">
+	<button type="submit" class="btn btn-primary btn-lg">IMAGE DESCRIPTORS</button></div>
+	</form>
+	<form action="{{url_for('vgg')}}" enctype="multipart/form-data" method="POST">
+    <div class="rectangle-1090-2">
+	<button type="submit" class="btn btn-primary btn-lg">VGG-16 Network</button></div>
+	</form>
+	<!-- <form action="{{url_for('vgg')}}" enctype="multipart/form-data" method="POST">
+    <div class="rectangle-1090-4">
+	<button type="submit" class="btn btn-primary btn-lg">MSE</button></div>
+	</form> -->
+    <div class="addphotoalternateblack24dp">
+      <div class="overlap-group1">
+
+
+
+
+      </div>
+    </div>
+
+
+    <div class="rectangle-1093 border-1px-dove-gray" >
+        {% if file1 %}
+            <div style="display:inline;"> <img src= "{{ file1 }}" width="160" height="180"></div>
+       <div style="font-size: 20px;display:inline;color:#394B72;font-weight:600;font-family:Verdana, sans-serif;"> Score : {{ score1 }}</div> 
+         {% endif %}
+          {% if file2 %}
+            <div> <img src= "{{ file2 }}" width="160" height="180" >
+        <div style="font-size: 20px;display:inline;color:#394B72;font-weight:600;font-family:Verdana, sans-serif;">Score : {{ score2 }}</div>
+            </div>
+         {% endif %}
+          {% if file3 %}
+            <div> <img src= "{{ file3 }}" width="160" height="180" >
+    <div style="font-size: 20px;display:inline;color:#394B72;font-weight:600;font-family:Verdana, sans-serif;">Score : {{ score3 }}</div>
+            </div>
+         {% endif %}
+        
+    </div>
+    <div class="photoblack24dp-1">
+      <img
+        class="path-4"
+        src="https://anima-uploads.s3.amazonaws.com/projects/606973e57eb7f5366d9dcd9f/releases/606bf270ac124c39bf983159/img/path-4@1x.png"
+      />
+
+    </div>
+      <div class="rectangle-1092 border-1px-dove-gray">
+      {% if filename %}
+         <center> <img src= "{{ filename }}" style="width:340px;height:500px;" >
+         <p style="font-size:20px;color:#394B72;font-weight:600;font-family:Verdana, sans-serif;">Query Sketch</p></center>
+    {% endif %}
+    </div>
+    <div class="photoblack24dp">
+      
+    
+    
+  </div>
+  <div class="base"></div>
+  <h1 class="text-1 playfairdisplay-bold-dove-gray-42px">FORENSIC FACE SKETCH RECOGNITION</h1>
+</div>
+</html>
